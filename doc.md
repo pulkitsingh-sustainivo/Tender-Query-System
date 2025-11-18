@@ -239,3 +239,259 @@ flowchart TD
 - Multi-language OCR
 
 ---
+
+Here is an expanded and enhanced **Future Enhancements** section with deeper technical detail, architecture upgrades, and planned next-gen improvements. You can drop this directly into your documentation.
+
+---
+
+## **12. Future Enhancements (Expanded & Detailed)**
+
+The following improvements are planned to make the AI Tender Query System more accurate, scalable, and feature-rich.
+
+---
+
+### **12.1 Advanced Semantic Search (Vector + Hybrid Search)**
+
+Move beyond plain-text search by integrating vector-based semantic retrieval.
+
+**Planned Features:**
+
+* Embed all OCR text using models such as **OpenAI text-embedding-3-large**, **Mistral embeddings**, or **Fireworks embeddings**
+* Store embeddings in a vector DB (Pinecone, Weaviate, Qdrant, Elasticsearch w/ vector plugin)
+* Hybrid retrieval: **keyword + semantic**
+* Reduce irrelevant context passed to LLM
+* Improve accuracy for long queries or ambiguous questions
+
+**Benefits:**
+
+* Faster retrieval
+* Higher answer precision
+* Less hallucination from LLM due to improved grounding
+
+---
+
+### **12.2 Improved RAG (Retrieval-Augmented Generation)**
+
+Enhance answer generation using more structured retrieval.
+
+**Proposed Additions:**
+
+* Chunk tender text intelligently (page-level, section-level, semantic chunks)
+* Use Mistral OCR layout metadata (tables, headings) to maintain structure
+* Add citation references in AI-generated answers
+* Multi-step reasoning with chain-of-thought suppression
+* Use “rerankers” like Cohere Rerank or BAAI-bge-reranker
+
+**Benefits:**
+
+* Answers become more trustworthy
+* Transparency increases (answer shows which parts of document were used)
+
+---
+
+### **12.3 Better Confidence Scoring & AI Safety Layer**
+
+Currently, escalation is based on simple confidence heuristics. We plan to enhance this with:
+
+**Enhancements:**
+
+* Dual-model validation: one model generates answer, another verifies accuracy
+* Semantic similarity scoring between question, retrieved context, and answer
+* Hallucination detection using specialized models
+* Rule-based safety checks (missing data, ambiguous questions, legal content)
+* Automatic escalation triggers when uncertainty is detected
+
+**Benefits:**
+
+* Reduced risk of incorrect AI answers
+* More reliable classification into "ESCALATE_TO_HUMAN"
+
+---
+
+### **12.4 Multi-Language Support**
+
+Enable OCR + answering in multiple languages.
+
+**Planned:**
+
+* Support Hindi, Tamil, Bengali, Telugu, Sinhalese, Arabic, French, etc.
+* Use multilingual models for classification and generation
+* Language autodetection in OCR and question inputs
+
+**Benefits:**
+
+* Expand system to international tenders
+* Improve accessibility
+
+---
+
+### **12.5 Bidder Portal Enhancements**
+
+Add user-friendly tools for bidders.
+
+**Features:**
+
+* View previously asked questions + historical answers
+* Suggested questions based on tender sections
+* Inline “Ask AI” button for each section of the document
+* AI-powered Tender Summary
+
+**Benefits:**
+
+* Simplifies bidder experience
+* Reduces repetitive or duplicate queries
+
+---
+
+### **12.6 🛠 Admin Dashboard Improvements**
+
+More powerful analytics and workflow automation.
+
+**Planned:**
+
+* Human review queue with priority scoring
+* AI vs Human performance analytics
+* Query category analytics
+* Tender completeness indicator (OCR quality, missing pages, etc.)
+* Export Q&A logs to CSV/PDF
+
+---
+
+### **12.7 Processing Queue & Auto-Scaling**
+
+Introduce background processing at scale.
+
+**Enhancements:**
+
+* Message queues (RabbitMQ, AWS SQS, or Kafka) for OCR and classifier tasks
+* Auto-scaling worker nodes for OCR-heavy workloads
+* Rate limiting per user or tender
+* Batch processing for large tenders
+
+**Benefits:**
+
+* High reliability under load
+* Reduced downtime
+* Smooth handling of large tenders (hundreds of pages)
+
+---
+
+### **12.8 Structured Data Extraction**
+
+Beyond plain OCR text.
+
+**Features:**
+
+* Extract tables in clean CSV or JSON format
+* Detect key sections (Eligibility, Criteria, Financial Terms, Submission Process)
+* Auto-generate metadata fields for tender indexing
+* Named Entity Recognition for:
+
+  * dates
+  * fees
+  * deadlines
+  * agencies
+  * contact info
+
+**Benefits:**
+
+* Improved searchability
+* Better contextual answering
+* More automation for admins
+
+---
+
+### **12.9 Plugin Architecture for New OCR Providers & LLM Models**
+
+Make the system model-agnostic.
+
+**Planned:**
+
+* Support switching between OCR engines (Mistral OCR, Tesseract, Google OCR)
+* Add plug-in support for different LLMs
+* Fallback model usage if a provider fails
+* A/B testing of AI providers
+
+**Benefits:**
+
+* Future-proof design
+* Cost optimization
+* Ability to leverage specialized models for certain tasks
+
+---
+
+### **12.10 Real-Time Chat Mode for Bidders**
+
+Instead of one-off questions, enable chat-with-tender mode.
+
+**Enhancements:**
+
+* Memory of past messages in a session
+* Use RAG for continuous conversations
+* Highlight relevant sections dynamically
+* Provide citations inline as “references”
+
+---
+
+### **12.11 Smart Alerts & Deadlines Monitoring**
+
+Automatically track tender deadlines and changes.
+
+**Features:**
+
+* Deadline reminders
+* Change detection on updated tender documents
+* Alert bidders or admins when important data changes
+
+---
+
+### **12.12 Security, Audit Logging & Compliance**
+
+Strengthen enterprise-grade reliability.
+
+**Planned:**
+
+* Full audit logging for every AI decision
+* Track which data was retrieved for each answer
+* Tender data encryption at-rest and in-transit
+* Hardened API security (JWT rotation, HMAC signatures)
+
+---
+
+### **12.13 Versioned Tender Documents**
+
+Support multiple versions of the same tender.
+
+**Benefits:**
+
+* Track changes between old vs new tenders
+* Show diff and update OCR records
+* Ensure answers use the most recent version
+
+---
+
+### **12.14 Offline or On-Prem Deployment Options**
+
+For enterprise/government clients.
+
+**Possible Options:**
+
+* Deploy on private cloud
+* Run LLMs on local GPU clusters
+* Data never leaves organization
+
+---
+
+### **12.15 🧷 AI Training on Repeated Escalations**
+
+Improve the system with fine-tuning.
+
+**Plan:**
+
+* Collect frequently escalated queries
+* Train custom mini-models
+* Improve classifier accuracy
+* Reduce escalations over time
+
+---
+
