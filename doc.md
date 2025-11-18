@@ -343,7 +343,7 @@ Add user-friendly tools for bidders.
 
 ---
 
-### **12.6 🛠 Admin Dashboard Improvements**
+### **12.6 Admin Dashboard Improvements**
 
 More powerful analytics and workflow automation.
 
@@ -482,7 +482,7 @@ For enterprise/government clients.
 
 ---
 
-### **12.15 🧷 AI Training on Repeated Escalations**
+### **12.15 AI Training on Repeated Escalations**
 
 Improve the system with fine-tuning.
 
