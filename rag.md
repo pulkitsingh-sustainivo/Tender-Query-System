@@ -522,11 +522,3 @@ app.post('/bidder/ask', async (req, res) => {
 - Log everything (for training) but minimize storage of full text in logs.
 
 ---
-
-If you want, I can now:
-
-- produce the exact code for `index-tender` worker (Node.js + Qdrant + OpenAI-style embeddings),
-- create a ready-to-run `/bidder/ask` endpoint with prompt templates wired to Fireworks AI,
-- or generate test dataset examples (questions + expected retrieval chunks) you can use to tune retrieval thresholds.
-
-Tell me which of those three you'd like next and I’ll produce the code and tests right away.
