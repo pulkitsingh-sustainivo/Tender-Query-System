@@ -175,8 +175,6 @@ Classification is performed using an LLM-based prompt instruction.
 ---
 
 ## 9. Architecture Diagram
-
-```mermaid
 flowchart TD
 
     B(Bidder) -->|Ask Question| QAPI[Backend API<br>/ask-question]
@@ -198,7 +196,6 @@ flowchart TD
 
     ROUTE -->|No| HUMAN[Human Reviewer]
     HUMAN --> QAPI
-```
 
 ---
 
